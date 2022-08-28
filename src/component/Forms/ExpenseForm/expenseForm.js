@@ -58,7 +58,7 @@ const ExpenseForm = (props) => {
         //make all the form Input data are combined into single data object 
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate)
         };
         props.onSaveExpenseData(expenseData)
