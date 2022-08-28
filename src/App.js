@@ -1,5 +1,6 @@
 import React from "react";
 import Expenses from "./component/Expenses/expenses";
+import NewExpense from "./component/Forms/NewExpense/newExpense";
 
 
 function App() {
@@ -24,17 +25,23 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return React.createElement(
-    'div',{},
-    React.createElement('h2',{},"Let's get Started!"),
-    React.createElement(Expenses,{items:expenses})
-    );
-  // return (
-  //  <div>
-  // <h2>Let's get Started</h2>
-  //   <Expenses items={expenses}/>
-  //  </div>
-  // );
+  // return React.createElement(
+  //   'div',{},
+  //   React.createElement('h2',{},"Let's get Started!"),
+  //   React.createElement(Expenses,{items:expenses})
+  //   );
+
+  const addExpenseHandler=(expense)=>{ //here is a function is receive data from child to parent component
+    console.log('app.js')
+    console.log(expense)
+  }
+  return (
+   <div>
+    {/* here recive props form child i named here onAddExpenseData and sends arguements too from NewExpense component */}
+    <NewExpense onAddExpenseData={addExpenseHandler}/> 
+    <Expenses items={expenses}/>
+   </div>
+  );
 }
 
 export default App;
